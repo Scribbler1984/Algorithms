@@ -1,26 +1,25 @@
 public class BubbleSort {
-    public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+    public static int[] numbers;
 
-        bubbleSort(arr);
-
-        System.out.println("Sorted array:");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+    BubbleSort(int[] array){
+        numbers = array;
     }
 
-    static void bubbleSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++) {
-            for (int j = 0; j < n-i-1; j++) {
-                if (arr[j] > arr[j+1]) {
-                    // swap arr[j] and arr[j+1]
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                }
+    public int[] sort(){
+        int n;
+
+        for (int i = 0; i < numbers.length - 1; i++) {
+            if(numbers[i] < numbers[i + 1]){
+                continue;
             }
+
+            n = numbers[i];
+            numbers[i] = numbers[i + 1];
+            numbers[i + 1] = n;
+            sort();
         }
+
+        return numbers;
     }
+
 }
